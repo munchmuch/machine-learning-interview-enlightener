@@ -70,6 +70,7 @@ Below are the most important topics to cover:
       - Support Vector Machines
       - Decision Trees
   - Linear vs Nonlinear algorithms
+
 ### Supervised learning
   - Linear Algorithms
     - Linear regression
@@ -98,12 +99,18 @@ Below are the most important topics to cover:
     - Linear discriminant analysis
 
   - Decision Trees
+    - Features are selected through the "*Information gain*" metric
+      - A feature that splits the classes purely is one of high information gain
     - Logits
     - Leaves
     - Training algorithm
       - stop criteria
     - Inference
     - Pruning
+      - Techniques: Top-down or bottom-up methods
+      - Algorithms:
+        - *Reduced error pruning*: Starting at the leaves, each node is replaced with its most popular class and the prediction accuracy is checked. If it is not affected, the change is kept and the process is repeated.
+        - *Cost complexity pruning*: A error rated is chosen. Next start removing a subtree such that it minimizes the error introduced. The best tree is kept based on the cross-validation set.
 
   - Ensemble methods
     - Bagging and boosting methods (with examples)
@@ -147,12 +154,26 @@ Below are the most important topics to cover:
       - RMSprop
       - ADAM
   - Loss functions
-    - Logistic Loss function 
+    - Logistic Loss function
+      - $$\text{Cost}(h_\theta(x), y) = -y\log(h_\theta(x)) - (1-y)\log(h_\theta(x))$$
+      - Overall loss over all samples:
+      $$ J(\theta) = \frac{1}{m} \left[\sum_{i=1}^{M}-y^{(i)}\log(h_\theta(x^{(i)})) + (1-y^{(i)})\log(h_\theta(x^{(i)})) \right] $$ 
     - Cross Entropy (remember formula as well)
+      - $$\text{CE} = - \sum_{t}^{C}t_i\log(s_i) \\
+        \text{BCE} = -t_1\log(s_1) - (1-t_1)\log(1-s_1) $$
     - Hinge loss (SVM)
+      - $\max(0, 1-y_i(w^Tx_i - b))$
 
-- Feature selection
-  - Feature importance
+- Feature selection/importance
+  - In feature selection we aim to select features that are highly dependent on the response
+  - Methods
+    - Chi-square test: Given a distribution we can get the observed and expected counts and check their deviation from each other.
+    - Tree models: 
+
+- Imbalanced classes
+  - Sampling, undersampling and oversampling
+  - Artificially generated samples
+
 - Model evaluation and selection
   - Evaluation metrics
     - TP, FP, TN, FN
@@ -182,7 +203,7 @@ Below are the most important topics to cover:
   - Dimension reduction techniques
     - Principal Component Analysis (PCA)
     - Independent Component Analysis (ICA)
-    - T-sne
+    - T-SNE
 
 
 ### Bias / Variance (Underfitting/Overfitting)
