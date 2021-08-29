@@ -1,34 +1,10 @@
-[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Machine%20Learning%20Interview%20Guide&url=https://github.com/alirezadir/machine-learning-interview-enlightener&via=alirezadira&hashtags=artificialintelligence,machinelearning,interviews,design)
-[![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/fold_left.svg?style=social&label=Follow%20%40alirezadira)](https://twitter.com/alirezadira)
 
-[![Build Status](https://travis-ci.com/username/projectname.svg?branch=master)](https://travis-ci.com/username/projectname)
-[![codecov](https://codecov.io/gh/cam-barts/ObeyTheTestingGoat/branch/master/graph/badge.svg)](https://codecov.io/gh/cam-barts/ObeyTheTestingGoat)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/alirezadir/machine-learning-interview-enlightener/blob/main/LICENSE)
-
-# :bulb: An Enlightening Guide to Machine Learning Interviews :orange_book: :computer: :robot: 
-
-:label: Notes: 
-* This repo is under continuous development, and any feedback and contribution are very welcome :blush: 
-**If you'd like to contribute**, please make a pull request with your suggested changes). 
-
-* This repo aims to be an enlightening guideline to prepare for **Machine Learning / AI technical interviews**. It has compiled based on my personal experience and notes from my own ML interview preparation early 2020, when I received offers from Facebook (ML Specialist), Google (ML Engineer), Amazon (Applied Scientist), Apple (Applied Scientist), and Roku.
-
-* At the time I'm putting these notes together, machine learning interviews at different companies do not follow a unique structure unlike software engineering interviews. However, I found some of the components very similar to each other, although under different naming.
-
-* My preparation was focused mostly for *Machine Learning Engineer* (and Applied Scientist) roles at big companies. Although relevant roles such as "Data Science" or "ML research scientist" have different structures, some of the modules reviewed here can be still useful. For more understanding about different technical roles within ML umbrella you can refer to [Link]
-
-* As a supplementary resource, you can also refer to my [Production Level Deep Learning](https://github.com/alirezadir/Production-Level-Deep-Learning) repo for further insights on how to design deep learning systems for production. 
-
-The following components are the most commonly used interview modules that I found for technical ML roles at different companies. We will go through them one by one and share how one can prepare:
 
 1. [General Coding Interview (Algorithms and Data Structures)](#coding)
 2. [ML/Data Coding](#ml-coding)
 3. [ML Depth](#depth)
 3. [ML Breadth](#breadth)
 5. [Machine Learning System Design](#ml-sys)
-
-
 
 
 # <a name="coding"></a> 1. General Coding Interview (Algorithms and Data Structures) :computer: 
@@ -41,18 +17,8 @@ Depending on the company and seniority level, there are usually one or two round
 
 At this time, [leetcode](https://leetcode.com/) is the most popular place to practice coding questions. I practiced with around 350 problems, which were roughly distributed as **55% Medium, 35% Easy, and 15% Hard** problems. You can find some information on the questions that I practiced in [Ma Leet Sheet](https://docs.google.com/spreadsheets/d/1A8GIgCIn7gvnwE-ZBymI-4-5_ZxQfyeQu99N6f5gEGk/edit#gid=656844248) - Yea I tried to have a little bit fun with it here and there to make the pain easier to carry :D (I will write on my approach to leetcode in the future.)
 
-## Educative.io
 
-I was introduced to [educative.io](https://www.educative.io/) by a friend of mine, and soon found it super useful in understanding the concepts of CS algorithms in more depth via their nice visualizations as well as categorizations.
-In particular, I found the [Grokking the Coding Interview](https://www.educative.io/courses/grokking-the-coding-interview) pretty helpful in organizing my mind on approaching interview questions with similar patterns. And the [Grokking Dynamic Programming Patterns for Coding Interviews](https://www.educative.io/courses/grokking-dynamic-programming-patterns-for-coding-interviews) with a great categorization of DP patterns made tackling DP problems a piece of cake even though I was initially scared!
-
-## Interview Kickstart
-As I had never taken an algorithms course before and this was my first preparation for coding interviews, I decided to invest a bit in myself and took the [interview kickstart](https://www.interviewkickstart.com/)'s  technical interview prep course. In particular, my favorites were algorithms classes taught by [Omkar](https://www.linkedin.com/in/omkar-deshpande-2013588/), who dived deep in algorithms with his unique approach, the mock interviews, which well prepared my skill-sets for the main interviews. 
-
-**Remember:** Interviewing is a skill and the more skillful you are, the better the results will be. Another part of the program that I learned a lot from (while many others ignored :D), was career coaching sessions.
-
-
-# <a name="ml-coding"></a> 2. ML/Data Coding :robot:
+# <a name="ml-coding"></a> 2. ML/Data Coding
 ML coding module may or may not exist in particular companies interviews. The good news is that, there are a limited number of ML algorithms that candidates are expected to be able to code. The most common ones include:
 - k-means clustering
 - k-nearest neighbors
@@ -71,20 +37,6 @@ ML coding module may or may not exist in particular companies interviews. The go
   - bigrams
   - tf-idf
 
-## Sample codes
-- You can find some sample codes (or links to ones) in the [ML_Coding_Problems Notebook](https://github.com/alirezadir/machine-learning-interview-enlightener/blob/main/Notebooks/ML_Coding_Problems.ipynb).
-
-
-# <a name="depth"></a> 3. ML Depth
-ML depth interviews typically aim to measure the depth of your knowledge in both theoretical and practical machine learning, in particular in the area that you claim you have worked on. Although this may sound scary at the beginning, this could be potentially one of the easiest rounds if you know well what you have worked on before. In other words, ML depth interviews typically focus on your previous ML related projects, but as deep as possible!
-
-Typically these sessions start with going through one of your past projects (which depending on the company, it could be either your or the interviewer's choice). It generally starts as a high level discussion, and the interviewer gradually dives deeper in one or multiple aspects of the project, sometimes until you get stuck (so it's totally ok to get stuck, maybe just not too early!).
-
-The best advice to prepare for this interview is to know the details of what you've worked on  before (really well), even if it's 5 years ago (and not be like that guy who once replied "hmm ... I worked on this 5 years ago and I don't recall the details :D " ).
-
-**Examples:**
-
-- [TBD]
 
 # <a name="breadth"></a> 4. ML Breadth/Fundamentals
 As the name suggests, this interview is intended to evaluate your general knowledge of ML concepts both from theoretical and practical perspectives. Unlike ML depth interviews, the breadth interviews tend to follow a pretty similar structure and coverage amongst different interviewers and interviewees.
@@ -110,14 +62,39 @@ Below are the most important topics to cover:
   - Supervised, unsupervised, and semi-supervised learning (with examples)
     - Classification vs regression vs clustering
   - Parametric vs non-parametric algorithms
+    - Examples of parametric algorithms (model form is fixed, find coefficients):
+      - Regression
+      - Logistic regression
+      - Linear Discriminant Analysis
+    - Examples of non-parametric algorithms:
+      - Support Vector Machines
+      - Decision Trees
   - Linear vs Nonlinear algorithms
 ### Supervised learning
   - Linear Algorithms
     - Linear regression
-      - least squares, residuals,  linear vs multivariate regression
+      - Least squares, residuals, linear vs multivariate regression
     - Logistic regression
-      - cost function (equation, code),  sigmoid function, cross entropy
+      - Cost function (equation, code), sigmoid function, cross entropy
+        - What is the difference between $L_1$ (Lasso) and $L_2$ (Ridge) regularization?
+          - $$\text{L1 cost} = \sum_{i=0}^{N}(y_i - \sum_{j=0}^{M}x_{ij}W_j)^2 + \lambda\sum_{j=0}^{M}\left\vert{W_j}\right\vert$$
+          - $$\text{L2 cost} = \sum_{i=0}^{N}(y_i - \sum_{j=0}^{M}x_{ij}W_j)^2 + \lambda\sum_{j=0}^{M}W_j^2$$
+          - $L_1$ uses the absolute of the weights $W_j$ whereas $L_2$ uses the squared value of $W_j$.
+          - $L_1$ estimates **median** of the data whereas $L_2$ estimates **mean**.
+          - From gradient descent POV, $L_1$ will constantly penalize until $W=0$, whereas $L_2$ decreasing gradient will penalize less and less approaching 0.
+          - $L_1$ regularization in feature selection helps to eliminate unimportant features due to its sparse estimates nature.
+      - Binary cross-entropy = Cross-entropy with $C = 2$.
+        - $$\text{CE} = - \sum_{t}^{C}t_i\log(s_i) \\
+        \text{BCE} = - \sum_{t=1}^{C=2}t_i\log(s_i) = -t_1\log(s_1) - t_2\log(s_2) $$
+        - Substitute $t_2 = 1 - t_1, s_2 = 1 - s_1$
+        - $$\text{BCE} = -t_1\log(s_1) - (1-t_1)\log(1-s_1)$$
     - Support Vector Machines
+      - Hard margin, term used when data is **linearly** separable.
+        - $\text{Margin distance} = \frac{2}{\left\Vert w \right\Vert}$
+        - $\min_{w} \left\Vert{w}\right\Vert^2$ subject to $y_i(w^Tx_i + b) \geq 1$ for $i = 1\dots N$
+      - Soft margin, term used when data is **not linearly** separable.
+        - *Hinge loss* function is used: $\max(0, 1-y_i(w^Tx_i - b))$, where $y_i$ is the raw output of the classifier i.e. probability.
+        - Goal is to minimize: $$\left[\frac{1}{n}\sum_{i=1}{N}\max(0, 1-y_i(w^Tx_i - b))\right] + \lambda\left\Vert w \right\Vert^2$$
     - Linear discriminant analysis
 
   - Decision Trees
@@ -131,10 +108,34 @@ Below are the most important topics to cover:
   - Ensemble methods
     - Bagging and boosting methods (with examples)
     - Random Forest
+      - Ensemble?
+      - *Classification*: Each decision tree is allowed a vote and the class with the most votes is the prediction.
+      - *Regression*: Each decision tree generates an individual prediction and the average is taken as the final prediction.
+      - **Uncorrelatedness** is important for random forests else it is as good as a single decision tree.
+      - Methods to decorrelate trees i.e. **RANDOM** part of **RANDOM** Forests:
+        - **[Subset of rows]** Bootstrap aggregating / Bagging: Each tree gets to sample a subset of the training data with replacement, where some examples are repeated. Then the output is combined through a process called "bootstrap aggregating" or "bagging".
+        - **[Subset of columns]** Feature randomness: Each tree gets to see a subset of the features for training.
+
     - Boosting
       - Adaboost
       - GBM
       - XGBoost
+        - What is XGBoost?
+          - Speed and performance through parallelization
+          - Differs from Random Forest by how the individual trees are built and in the way the results are combined.
+          - Boosting?
+            - Combines weak learners sequentially, each new tree corrects the errors of the previous one.
+            - $F(2) = F(1) + \eta \cdot \text{Second tree}$ 
+            where $\text{Second tree} = - \frac{\partial L}{\partial F(1)} = - \frac{\partial \text{Loss function}}{\partial \text{Previous model's output}}$
+        - | Parameters | Description |
+          | :--- | :--- |
+          | alpha $\alpha$ | $L_1$ regularization |
+          | lambda $\lambda$ | $L_2$ regularization |
+          | gamma $\gamma$ | Minimum loss reduction to make further parition on a leaf node |
+          | eta $\eta$ | Learning rate |
+          | max_depth | Maximum depth of the tree, increasing this will increases model complexity and tendency to overfit |
+          | subsample | Range (0, 1] subsamples training data prior to growing trees, prevents overfitting |
+
   - Comparison of different algorithms
     - [TBD: LinkedIn lecture]
 
