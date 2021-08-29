@@ -228,9 +228,14 @@ Below are the most important topics to cover:
   - vanishing/exploding gradient problem
 - LSTM
   - vanishing/exploding gradient problem
-  -  gradient?
+  - gradient?
+  - Skip or residual connections
+     - Allow gradient to flow through the  network directly without passing through the non-linear activation function.
+     - Network can learn the identity function directly.
+     - "Residual" term is used as since the identity function is propagated, what is left to learn is the "residual".
+     - Helps to complex networks learn simple functions and prevent "degradation". "Degredation" occurs when a complex network starts to underperform simpler networks.
 - Dropout
-  - how to apply dropout to LSTM?
+  - LSTM and dropout: It might be unwise to add dropouts to LSTMs as there is a chance of forgetting something. Better to put dropout after dense layers.
 - Seq2seq models
 - Attention
   - self-attention
@@ -349,9 +354,28 @@ I observed there are certain sets of topics that are frequently brought up or ca
 ### NLP
 
 - Preprocessing
-  - Normalization, tokenization, stop words
+  - Tokenization: Process of splitting a sentence into words, characters or subwords
+  - Stop words: Commonly used words that are ignored as they don't add value to understanding.
+  - Normalization:
+
 - Word Embeddings
-  - Word2Vec, GloVe, Elmo, BERT
+  - Word2Vec, GloVe, ElMo, BERT
+  - Word2Vec vs GloVe
+    - Both models learn **geometrical** encodings (vectors) of words from their co-occurrence information (how frequently they appear in large text corpora).
+    - Word2Vec is a "predictive" model whereas GloVe is a "count-based" model.
+    - Predictive models learn their vector representations by minimizing loss, in Word2Vec this is done through a **feed-forward** network.
+    - Count-based models learn their vectors by doing dimensionality reduction on the co-occurence counts matrix. For each word (row), we count how frequently it is seen in a context (column). Then this giant matrix is factorized to a lower dimension matrix while preserving the reconstruction loss.
+  - Pre-trained word embeddings like Word2Vec and GloVe cannot change a representation of a word even though its meaning changes according to context. i.e. present: gift, present: now
+  - ELMo
+    - ELMo will change the vector representation of a word according to context. Dynamic encoding based on context.
+    - ELMo uses a bidirectional LSTM, higher level layers capture **context** while lower level layers capture **syntax**.
+    - First CNN layer of ELMo uses "**character embedding**" to make it context independent
+    - LSTMs on later layers incorporate a skip or residual connection to learn from earlier layers well and to prevent the gradient vanishing issue.
+    - Forward LSTMs will help to predict future words while backward LSTMs will help with previous words.
+    - Vectors from back and forward LSTMs are concatenated and normalized using weights obtained during training. The final representation is the sum of all layers hence it includes both **syntax** and **context** information.
+    - $\gamma$ is to aid optimization process.
+  - BERT
+    - 
 - Text classification and sentiment analysis
 - NLP specialist topics:
   - Language Modeling
