@@ -458,4 +458,8 @@ Note: The reason I have more topics here is because this was my focus in my own 
 
 
 # Behavioral interviews
-- STAR method [TBD]
+- **STAR** method
+  - Situation: Set the scene and give the necessary details of your example.
+  - Task: Describe what your responsibility was in that situation.
+  - Action: Explain exactly what steps you took to address it.
+  - Result: Share what outcomes your actions achieved.
