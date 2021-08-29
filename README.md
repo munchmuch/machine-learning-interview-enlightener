@@ -188,6 +188,10 @@ Below are the most important topics to cover:
   - Model selection
     - Cross validation
       - k-fold cross validation (what's a good k value?)
+- Time Series
+  - Attention mechanisms
+    - 
+  - PACF and ACF
 
 ### Unsupervised learning
   - Clustering
@@ -266,7 +270,7 @@ This is one of my favorite interviews in which you can shine bright and up-level
 
 - Deploying deep learning models in production can be challenging, and it is beyond training models with good performance. Several distinct components need to be designed and developed in order to deploy a production level deep learning system.
 <p align="center">
-<img src="https://github.com/alirezadir/Production-Level-Deep-Learning/blob/master/images/components.png" title="" width="70%" height="70%">
+<img src="images/components.png" title="" width="70%" height="70%">
 </p>
 
 - For more insight on different components above you can check out the following resources):
@@ -354,9 +358,14 @@ I observed there are certain sets of topics that are frequently brought up or ca
 ### NLP
 
 - Preprocessing
-  - Tokenization: Process of splitting a sentence into words, characters or subwords
-  - Stop words: Commonly used words that are ignored as they don't add value to understanding.
   - Normalization:
+    - Tokenization: Process of splitting a sentence into words, characters or subwords
+    - Stop words: Commonly used words that are ignored as they don't add value to understanding.
+    - Lemmatization: A lemma is a canonical form, dictionary form or a citation for of a set of words. Convert all words that has the same meaning to its lemma.
+    - Stemming: Reducing a word to its root form, e.g. stopping to stop
+    - Expanding contractions e.g. convert we'll to we will
+    - Removing punctuations
+    - POS tagging: Task of assigning each word a tag e.g. noun, verb, adjective, adverb etc
 
 - Word Embeddings
   - Word2Vec, GloVe, ElMo, BERT
@@ -375,7 +384,60 @@ I observed there are certain sets of topics that are frequently brought up or ca
     - Vectors from back and forward LSTMs are concatenated and normalized using weights obtained during training. The final representation is the sum of all layers hence it includes both **syntax** and **context** information.
     - $\gamma$ is to aid optimization process.
   - BERT
-    - 
+    - BERT is a form of self-supervised learning. 
+    - During pre-training, 80% of the time it randomly masks a word in a sentence, 10% of the time it will substitute it with another and the other 10% leave it unchanged. It also will add steps to predict the next sentence.
+    - This helps BERT to predict the next word and with question answering tasks.
+    - Dot Product Attention/[`Self attention`](#self-attention).
+    - Types of BERT models:
+      - BERT Base: $L=12, H=768, A=12$
+      - BERT Large: $L=24, H=1024, A=16$
+      - $L$: Transformer blocks
+      - $H$: Hidden dimension embedding
+      - $A$: Bidirectional self-attention heads
+- Attention Mechanisms
+  - <a name="self-attention"></a> Self-attention
+  - | Sentence: | Bank | of | the | river|
+    | :--- | :---: | :---: | :---: | :---: |
+    | Word vector: | $v_1$ | $v_2$ | $v_3$ | $v_4$ |
+    | Reweighing: | $\mathbf{\bar{w}}_1 \mathbf{v}$ | $\mathbf{\bar{w}}_2 \mathbf{v}$ | $\mathbf{\bar{w}}_3 \mathbf{v}$ | $\mathbf{\bar{w}}_4 \mathbf{v}$ |
+    | Output: | $y_1$ | $y_2$ | $y_3$ | $y_4$ |
+  - $v_1 \cdot v_1 = w_{11} \rightarrow \text{normalized} \rightarrow \bar{w}_{11}$ <br>
+    $v_1 \cdot v_2 = w_{12} \rightarrow \text{normalized} \rightarrow \bar{w}_{12}$ <br>
+    $v_1 \cdot v_3 = w_{13} \rightarrow \text{normalized} \rightarrow \bar{w}_{13}$ <br>
+    $v_1 \cdot v_4 = w_{14} \rightarrow \text{normalized} \rightarrow \bar{w}_{14}$ <br>
+    $\bar{w}_{11}v_1 + \bar{w}_{12}v_2 + \bar{w}_{13}v_3 + \bar{w}_{14}v_4 = y_1 \rightarrow \mathbf{\bar{w}}_1 \mathbf{v}$ 
+  - This reweighing helps to form linkages with words within the sentence.
+- Topic Modelling
+  - Latent Dirichlet Allocation
+    - Documents with similar topics will use similar groups of words
+    - Documents are probability distributions over latent topics
+    - Topics are probability distributions over words
+    - Plate notation is a concise way of visually representing the dependencies among the model parameters <p align="center"> <img src="images/plate_notation.jpg" title="" width="70%" height="70%"> </p>
+    - | Parameter | Description |
+      | :--- | :--- |
+      | $M$ | Total number of documents |
+      | $N$ | Total number of words in a document |
+      | $\alpha$ | is the parameter of the Dirichlet prior on the per-document topic distribution, a high $\alpha$ indicates each document has a high mixture topics |
+      | $\beta$ | is the parameter of the Dirichlet prior on per-topic word distribution, a high $\beta$ indicates that each topic will contain a mixture of most of the words |
+      | $\theta_m$ | Topic distribution for document $m$ |
+      | $z_{mn}$ | is the topic of the $n^\text{th}$ word of document $m$ |
+      | $w_{mn}$ | is the specific word |
+    Parameters exists within a rectangle indicates their belonging to the entity
+    - LDA assumes that each document is created using a `Generative Process`
+      - Determine number of words in a document
+      - Choose a topic mixture from a fixed set of topics e.g. (20% topic A, 30% topic B...)
+      - Generate words in the document by:
+        - First pick a topic based on the document's multinomial distribution above
+        - Next pick a word from the topic's multinomial distribution
+    - Summary: LDA takes a number of documents. It assumes that the words in each document are related. It then tries to figure out the "recipe" for how each document could have been created. We just need to tell the model how many topics to construct and it uses that "recipe" to generate the topic and word distributions over a corpus. Based on that output, we can identify similar documents within the corpus.
+    - | Advantages | Limitations |
+      | :--- | :--- |
+      | LDA is an effective tool for topic modeling | Must know the number of topics K in advance |
+      | Easy to understand conceptually | Dirichlet topic distribution cannot capture correlations among topics |
+      | Has been shown to produce good results over many domains | |
+      | New applications | |
+  
+
 - Text classification and sentiment analysis
 - NLP specialist topics:
   - Language Modeling
