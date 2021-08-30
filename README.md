@@ -95,7 +95,8 @@ Below are the most important topics to cover:
         - $\min_{w} \left\Vert{w}\right\Vert^2$ subject to $y_i(w^Tx_i + b) \geq 1$ for $i = 1\dots N$
       - Soft margin, term used when data is **not linearly** separable.
         - *Hinge loss* function is used: $\max(0, 1-y_i(w^Tx_i - b))$, where $y_i$ is the raw output of the classifier i.e. probability.
-        - Goal is to minimize: $$\left[\frac{1}{n}\sum_{i=1}{N}\max(0, 1-y_i(w^Tx_i - b))\right] + \lambda\left\Vert w \right\Vert^2$$
+        - Goal is to minimize: 
+        $$\left[\frac{1}{n}\sum_{i=1}{N}\max(0, 1-y_i(w^Tx_i - b))\right] + \lambda\left\Vert w \right\Vert^2$$
     - Linear discriminant analysis
 
   - Decision Trees
@@ -132,8 +133,9 @@ Below are the most important topics to cover:
           - Differs from Random Forest by how the individual trees are built and in the way the results are combined.
           - Boosting?
             - Combines weak learners sequentially, each new tree corrects the errors of the previous one.
-            - $F(2) = F(1) + \eta \cdot \text{Second tree}$ 
-            where $\text{Second tree} = - \frac{\partial L}{\partial F(1)} = - \frac{\partial \text{Loss function}}{\partial \text{Previous model's output}}$
+            - $$F(2) = F(1) + \eta \cdot \text{Second tree}$$
+            where 
+            $$\text{Second tree} = - \frac{\partial L}{\partial F(1)} = - \frac{\partial \text{Loss function}}{\partial \text{Previous model's output}}$$
         - | Parameters | Description |
           | :--- | :--- |
           | alpha $\alpha$ | $L_1$ regularization |
@@ -176,13 +178,23 @@ Below are the most important topics to cover:
 
 - Model evaluation and selection
   - Evaluation metrics
-    - TP, FP, TN, FN
+    - <p align="center">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/700px-Precisionrecall.svg.png" title="" width="50%" height="50%">
+      </p>
+    - Precision: 
+    $$\text{Precision} = \frac{TP}{TP + FP}$$
+    - Recall: 
+    $$\text{Recall} = \frac{TP}{TP + FN}$$
     - Confusion matrix
     - Accuracy, precision, recall/sensitivity, specificity, F-score
       - how do you choose among these? (imbalanced datasets)
       - precision vs TPR (why precision)
     - ROC curve (TPR vs FPR, threshold selection)
     - AUC (model comparison)
+    - PR AUC vs ROC: 
+    > I think intuitively you can say that if your model needs to perform equally well on the positive class as the negative class for example, for classifying images between cats and dogs, you would like the model to perform well on the cats as well as on the dogs. For this you would use the ROC AUC. 
+    >
+    > On the other hand, if you're not really interested in how the model performs on the negative class, but just want to make sure every positive prediction is correct (precision), and that you get as many of the positives predicted as positives as possible (recall), then you should choose PR AUC. For example, for detecting cancer, you don't care how many of the negative predictions are correct, you want to make sure all the positive predictions are correct, and that you don't miss any. (In fact, in this case missing a cancer would be worse then a false positive so you'd want to put more weight towards recall.)
     - Extension of the above to multi-class (n-ary) classification
     - algorithm specific metrics [TBD]
   - Model selection
@@ -192,6 +204,7 @@ Below are the most important topics to cover:
   - Attention mechanisms
     - 
   - PACF and ACF
+    - ACF refers to the Autocorrelation function
 
 ### Unsupervised learning
   - Clustering
@@ -231,8 +244,9 @@ Below are the most important topics to cover:
   - backpropagation through time (BPTT)
   - vanishing/exploding gradient problem
 - LSTM
-  - vanishing/exploding gradient problem
-  - gradient?
+  - Vanishing gradient problem
+  > No issue when having shallow networks but when you have complex and deep networks, activation functions like "sigmoid" will produce small gradients that make training difficult. 
+  > Solution: use activation layers like ReLU where the gradient is constant past the origin or use residual or skip connections
   - Skip or residual connections
      - Allow gradient to flow through the  network directly without passing through the non-linear activation function.
      - Network can learn the identity function directly.
@@ -257,6 +271,8 @@ Below are the most important topics to cover:
 - P-values
 
 ## 4. Other topics:
+  - Central Limit Theorem
+    > If you take a distribution of spending per customer, it would probably look like a Poisson distribution. If you take that customer's mean and plot it with the mean of another 1000 customers, the distribution of means will look normal.
   - Outliers
   - Similarity/dissimilarity metrics
     - Euclidean, Manhattan, Cosine, Mahalanobis (advanced)
